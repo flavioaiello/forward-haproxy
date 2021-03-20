@@ -19,7 +19,7 @@ This forward proxy can be used in outbound scenarios (egress) where split horizo
 ### Legacy
 This forward proxy can also be used in legacy scenarios for load balancing whithin traditional workloads.
 
-## Modes
+## Supported modes
 - HTTP forward based on HTTP Host-Header.
 - TCP forward based on TLS Server-Name-Indication (SNI). (TLS offloading is not supported)
 
