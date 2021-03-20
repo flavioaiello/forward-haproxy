@@ -1,3 +1,4 @@
+
 [![Docker Pulls](https://img.shields.io/docker/pulls/flavioaiello/forward-haproxy.svg)](https://hub.docker.com/r/flavioaiello/forward-haproxy/)
 [![Docker Automation](
 https://img.shields.io/docker/automated/flavioaiello/forward-haproxy.svg)](https://hub.docker.com/r/flavioaiello/forward-haproxy/)
@@ -5,7 +6,7 @@ https://img.shields.io/docker/automated/flavioaiello/forward-haproxy.svg)](https
 https://goreportcard.com/badge/github.com/flavioaiello/forward-haproxy)](https://goreportcard.com/report/github.com/flavioaiello/forward-haproxy)
 
 # Forward-Haproxy
-This general-purpose proxy forwards any request based on the resolver defined by the ´RESOLVER´ environment variable and runs completely without further configuration.
+This general-purpose proxy forwards any request based on the resolver defined by the `RESOLVER` environment variable and runs completely without further configuration.
 
 ## Use-Cases
 
