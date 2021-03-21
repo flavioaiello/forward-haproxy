@@ -21,5 +21,15 @@ This forward proxy can also be used in legacy scenarios for load balancing whith
 - HTTP forward based on HTTP Host-Header.
 - TCP forward based on TLS Server-Name-Indication (SNI). (TLS offloading is not supported)
 
+## Testing
+Local testing can simply be done by deploying compose recipes:
+```
+docker stack deploy -c apps.yml apps
+```
+
+Now the endpoints below should be reachable:
+- http://app1.localtest.me
+- http://app2.localtest.me
+
 ## Performance
 Haproxy offeres outstanding performance based on zero-copy and tcp-splicing.

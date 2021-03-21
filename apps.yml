@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+
+  proxy:
+    image: flavioaiello/forward-haproxy:latest
+    environment:
+      - RESOLVER=127.0.0.11
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:8443"
+      - "8443:8443"
+      - "1111:1111"
+    networks:
+      - default
+    healthcheck:
+      test: nc -w 7 -zvv 0.0.0.0 1111
+      interval: 30s
+      timeout: 30s
+      retries: 20
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+        limits:
+          memory: 128M
+      mode: global
+      restart_policy:
+        condition: any
+
+  app1:
+    image: nginx:latest
+    networks:
+      default:
+        aliases:
+          - app1.localtest.me
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.05'
+          memory: 8M
+        limits:
+          memory: 8M
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 10
+
+  app2:
+    image: nginx:latest
+    networks:
+      default:
+        aliases:
+          - app2.localtest.me
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.05'
+          memory: 8M
+        limits:
+          memory: 8M
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 10
+
+networks:
+  default:
+    driver: overlay
