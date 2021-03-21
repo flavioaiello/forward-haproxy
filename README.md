@@ -22,7 +22,7 @@ This forward proxy can also be used in legacy scenarios for load balancing whith
 - TCP forward based on TLS Server-Name-Indication (SNI). (TLS offloading is not supported)
 
 ## Testing
-Local testing can simply be done by deploying compose recipes:
+Local testing can be performed simply by providing the test recipe:
 ```
 docker stack deploy -c apps.yml apps
 ```
